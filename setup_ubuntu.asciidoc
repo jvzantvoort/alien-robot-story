@@ -1,0 +1,33 @@
+:Author: John van Zantvoort
+:Date:   Sat, 06 Jun 2015 02:43:11 +0200
+:toc:
+:Revision: 0.1
+
+= setup ride on ubuntu
+
+== Install robotframework and ride
+
+[source,sh]
+----
+sudo apt-get install python-wxgtk2.8
+sudo apt-get install python-setuptools
+sudo easy_install robotframework
+sudo easy_install robotframework-ride
+----
+
+== Install supporting tools
+
+[source,sh]
+----
+sudo apt-get install git
+sudo apt-get install vim
+sudo apt-get install vim-gtk
+----
+
+== Download the article sources
+
+[source,sh]
+----
+git clone git@github.com:jvzantvoort/alien-robot-story.git
+----
+
