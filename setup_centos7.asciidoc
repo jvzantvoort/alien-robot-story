@@ -1,0 +1,68 @@
+:Author: John van Zantvoort
+:Date:   Tue, 09 Jun 2015 07:23:48 +0200
+:toc:
+:Revision: 0.1
+
+= setup ride on centos 7
+
+== Install robotframework and ride
+
+== Disable nuisances
+
+.disable selinux
+[source,sh]
+----
+vim /etc/sysconfig/selinux
+# set to 'SELINUX=disabled'
+----
+
+.disable packagekitd
+[source,sh]
+----
+systemctl disable packagekitd
+----
+
+== Enable virtual machine performance profile
+
+This is a vm so set the profile accordingly:
+
+[source,sh]
+----
+tuned-adm profile virtual-guest
+service tuned restart
+----
+
+== Update the software
+
+[source,sh]
+----
+yum clean all
+yum update
+reboot
+----
+
+== Add third party package repos
+
+[source,sh]
+----
+wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+rpm -ivh rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm 
+rpm -ivh epel-release-7-5.noarch.rpm 
+----
+
+== Install wxGTK and wxPython
+
+[source,sh]
+----
+yum install wxGTK
+yum install wxPython
+----
+
+== Install robotframework and ride
+
+[source,sh]
+----
+easy_install robotframework
+easy_install robotframework-ride
+----
